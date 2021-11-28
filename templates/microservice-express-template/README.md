@@ -7,3 +7,5 @@ Don't forget to run `npm install`
 Don't forget to fill ur `.env`
 
 Don't forget to add ur SQL query
+
+And feel free to add ur template inside of `/templates/`
