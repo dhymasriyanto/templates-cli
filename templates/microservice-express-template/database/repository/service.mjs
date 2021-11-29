@@ -79,7 +79,7 @@ function createColumnSets(pgp) {
 
 		// Type TableName is useful when schema isn't default "public",
 		// otherwise you can just pass in a string for the table name.
-		const table = new pgp.helpers.TableName({table: process.env.SERVICE, schema: process.env.DB_SCHEMA})
+		const table = new pgp.helpers.TableName({table: process.env.DB_TABLE, schema: process.env.DB_SCHEMA})
 
 		cs.insert = new pgp.helpers.ColumnSet(
 			[
