@@ -3,84 +3,91 @@
 // avoiding error on vscode using when import properties from '../../package.json' assert {type: 'json'}, using this instead: (you know, red is bad)
 const {default: properties} = await import('../../package.json', { assert: {type: 'json'}})
 import { db } from '../../database/index.mjs'
+import { response } from '../../helper/response.mjs'
 
 export let controller = {
 	all: (req, res, next) => {
 		db.service.all()
 			.then(rows=>{
-				res.json({
-					status: 'success',
-					data: rows,
-					message: 'Retrieved ALL data'
-				})
+				return response.ok(
+					'success',
+					'Retrieved all data',
+					rows,
+					res
+				)
 			})
-			.catch(function (err) {
-				return next(err)
+			.catch((error)=> {
+				return next(response.badRequest(error))
 			})
 	},
 	add: (req, res, next)=>{
 		db.service.add(req.body)
 			.then(rows=>{
-				res.json({
-					status:'success',
-					data: rows,
-					message: 'Data inserted'
-				})
+				return response.ok(
+					'success',
+					'Data inserted',
+					rows,
+					res
+				)
 			})
-			.catch(function (err) {
-				return next(err)
+			.catch((error)=> {
+				return next(response.badRequest(error))
 			})
 	},
 	update: (req, res, next) => {
 		db.service.update(req.body, req.params.id)
 			.then(rows=>{
-				res.json({
-					status: 'success',
-					data: rows,
-					message: 'Data updated'
-				})
+				return response.ok(
+					'success',
+					'Data updated',
+					rows,
+					res
+				)
 			})
-			.catch(function(error){
-				return next(error)
+			.catch((error)=> {
+				return next(response.badRequest(error))
 			})
 	},
 	delete: (req, res, next) => {
 		db.service.delete(req.params.id)
 			.then(rows=>{
-				res.json({
-					status: 'success',
-					data: rows,
-					message: 'Data deleted'
-				})
+				return response.ok(
+					'success',
+					'Data deleted',
+					rows,
+					res
+				)
 			})
-			.catch(function (error) {
-				return next(error)
+			.catch((error)=> {
+				return next(response.badRequest(error))
 			})
 	},
 	findId: (req, res, next) => {
 		db.service.findId(req.params.id)
 			.then(rows=>{
-				res.json({
-					status: 'success',
-					data: rows,
-					message: 'Retrieved ONE data'
-				})
+				return response.ok(
+					'success',
+					'Retrieved one data',
+					rows,
+					res
+				)
 			})
-			.catch(function (err) {
-				return next(err)
+			.catch((error)=> {
+				return next(response.badRequest(error))
 			})
 	},
 	find: (req, res, next) => {
 		db.service.find(req.params.value)
 			.then(rows=>{
-				res.json({
-					status: 'success',
-					data: rows,
-					message: 'Retrieved similar data'
-				})
+				return response.ok(
+					'success',
+					'Retrieved similar data',
+					rows,
+					res
+				)
 			})
-			.catch(function (err) {
-				return next(err)
+			.catch((error)=> {
+				return next(response.badRequest(error))
 			})
 	},
 	about: (req, res) => {
