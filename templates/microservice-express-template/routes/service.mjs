@@ -2,7 +2,7 @@
 
 import express from 'express'
 const router = express.Router()
-import { controller } from '../app/api/controller.mjs'
+import {controller} from '../app/api/controller.mjs'
 import multer from 'multer'
 const upload = multer() // for parsing multipart/form-data
 
@@ -15,7 +15,7 @@ router.route('/')
 // find data by id
 // update one data
 // delete one data
-router.route(':id').get(controller.findId)
+router.route('/:id').get(controller.findId)
 	.put(upload.array(), controller.update)
 	.delete(controller.delete)
 
