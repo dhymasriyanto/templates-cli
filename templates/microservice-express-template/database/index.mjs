@@ -5,9 +5,9 @@ import pgPromise from 'pg-promise' // pg-promise core library
 import { dbConfig } from './config.mjs' //db connection config
 import { Diagnostics } from './diagnostics/index.mjs'
 import { Service } from './repository/index.mjs'
-import dotenv from 'dotenv'
+//import dotenv from 'dotenv'
 
-dotenv.config()
+//dotenv.config()
 
 // pg-promise initialization options:
 const initOptions = {

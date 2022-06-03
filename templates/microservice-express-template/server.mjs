@@ -6,7 +6,7 @@ import {router} from './routes/index.mjs'
 import cors from 'cors'
 
 const app = express()
-dotenv.config()
+//dotenv.config()
 const port = process.env.PORT
 
 app.use(cors())

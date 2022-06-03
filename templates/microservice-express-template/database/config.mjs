@@ -5,9 +5,9 @@
 
 'use strict'
 
-import dotenv from 'dotenv'
+//import dotenv from 'dotenv'
 
-dotenv.config()
+//dotenv.config()
 
 export let dbConfig = {
 	host: process.env.DB_HOST,

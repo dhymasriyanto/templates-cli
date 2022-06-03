@@ -1,9 +1,9 @@
 'use strict'
 
 import { service as sql } from '../sql/index.mjs'
-import dotenv from 'dotenv'
+//import dotenv from 'dotenv'
 
-dotenv.config()
+//dotenv.config()
 
 const cs = {} // Reusable ColumnSet objects.
 
